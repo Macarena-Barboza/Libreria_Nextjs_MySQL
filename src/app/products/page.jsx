@@ -16,8 +16,9 @@ const products = await loadProducts()
             <div className='product' >
                 {products.map(product => (
                     <Link href={`/products/${product.id}`} className='product-item' key={product.id}>
+                         <img src={product.imagen} alt={product.titulo}/>
                          <h2>{product.titulo}</h2>
-                         <h3>${product.precio}</h3>
+                         <h3>$ {product.precio}</h3>
                          <p className='item-descr'>{product.descripcion}</p>
                      </Link>
                     ))}

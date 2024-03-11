@@ -13,10 +13,10 @@ export async function GET() {
 
 export async function POST(req) {
     try {
-        const { titulo, descripcion, precio } = await req.json();
-        const result = await db.query("INSERT INTO product SET ?", { titulo, descripcion, precio });
+        const { titulo, descripcion, precio, imagen } = await req.json();
+        const result = await db.query("INSERT INTO product SET ?", { titulo, descripcion, precio, imagen });
         console.log(result);
-        return NextResponse.json({ titulo, descripcion, precio, id: result.insertId })
+        return NextResponse.json({ titulo, descripcion, precio, imagen, id: result.insertId })
     } catch (error) {
         console.log(error)
         return NextResponse.json({ message: error.message, }, { status: 500 })

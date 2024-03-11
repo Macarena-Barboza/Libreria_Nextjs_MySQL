@@ -9,11 +9,11 @@ async function loadProduct(productId) {
 
 export default async function DetailProduct({params}) {
     const product = await loadProduct(params.id);
-
   return (
     <div>
         <div className='product-detail'>
         <h2>Detalle de Producto:</h2>
+                <img src={product.imagen} alt={product.titulo}/>
                 <p>Titulo: {product.titulo}</p>
                 <p>Precio: $ {product.precio}</p>
                 <p>Descripción: {product.descripcion}</p>

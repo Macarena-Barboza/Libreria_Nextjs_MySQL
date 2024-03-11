@@ -7,7 +7,8 @@ export default function ProductForm() {
   const [product, setProduct] = useState({
     titulo:'',
     descripcion:'',
-    precio:''
+    precio:'',
+    imagen:''
   });
   
   const resetForm = useRef(null);
@@ -26,11 +27,12 @@ export default function ProductForm() {
           titulo: res.data.titulo,
           descripcion: res.data.descripcion,
           precio: res.data.precio,
+          precio: res.data.imagen,
         })
       })
     }
   },[]) 
-
+ 
   const handleSubmit = async (e)=>{
       e.preventDefault();
       if(!params.id){
@@ -48,18 +50,24 @@ export default function ProductForm() {
   return (
     <div className='contForm'>
     {params.id ? <h1>Actualizar un Producto:</h1> : <h1>Crear un Producto:</h1>}
-    <form onSubmit={handleSubmit} ref={resetForm} >
-        <label htmlFor='titulo'>Producto:</label>
-        <input type='text' placeholder='titulo' onChange={handleChange} name='titulo' value={product.titulo} />
+        <form onSubmit={handleSubmit} ref={resetForm} >
+            <label htmlFor='imagen'>Imagen:</label>
+            <input type='text' placeholder='URL de Imagen' onChange={handleChange} name='imagen' value={product.imagen} />
 
-        <label htmlFor='descripcion'>Descripción:</label>
-        <textarea rows={6} placeholder='descripción' onChange={handleChange} className='tarea' name="descripcion" value={product.descripcion}></textarea>
+            <label htmlFor='titulo'>Producto:</label>
+            <input type='text' placeholder='titulo' onChange={handleChange} name='titulo' value={product.titulo} />
 
-        <label htmlFor='Precio'>Precio:</label>
-        <input type='text' placeholder='1000' onChange={handleChange} name='precio' value={product.precio} />
+            <label htmlFor='descripcion'>Descripción:</label>
+            <textarea rows={6} placeholder='descripción' onChange={handleChange} className='tarea' name="descripcion" value={product.descripcion}></textarea>
 
-        <button>{params.id ? "Actualizar" : "Agregar Producto"}</button>
-    </form>
-</div>
+            <label htmlFor='Precio'>Precio:</label>
+            <input type='text' placeholder='1000' onChange={handleChange} name='precio' value={product.precio} />
+
+            <button>{params.id ? "Actualizar" : "Agregar Producto"}</button>
+        </form>
+    </div>
   )
 }
+
+
+
