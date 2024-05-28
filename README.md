@@ -1,4 +1,4 @@
-## Crud con Next.js - MySQL
+## Librería con Next.js - MySQL
 
 Este Crud lo realizé con <strong>Next.js</strong>, como base de datos <strong>MySQL</strong> y para los estilos <strong>CSS</strong>.
 <div> 
